@@ -24,7 +24,7 @@ def generate_financial_report(
 
     gross_profit = revenue - cost_of_goods_sold
     ebitda = gross_profit - operating_expenses
-    net_margin_inputs_profit = (
+    ebit = (
         ebitda - depreciation - amortization
     )
 
@@ -32,8 +32,8 @@ def generate_financial_report(
         (gross_profit / revenue) * 100 if revenue else 0.0
     )
 
-    net_margin_percent = (
-        (net_margin_inputs_profit / revenue) * 100
+    ebit_margin_percent = (
+        (ebit / revenue) * 100
         if revenue
         else 0.0
     )
@@ -47,10 +47,10 @@ def generate_financial_report(
         "ebitda": round(ebitda, 2),
         "depreciation": round(depreciation, 2),
         "amortization": round(amortization, 2),
-        "net_profit_before_interest_and_tax": round(
-            net_margin_inputs_profit, 2
+        "ebit": round(
+            ebit, 2
         ),
-        "net_margin_percent": round(net_margin_percent, 2),
+        "ebit_margin_percent": round(ebit_margin_percent, 2),
     }
 
 

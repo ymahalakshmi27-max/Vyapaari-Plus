@@ -18,15 +18,15 @@ class TestJSONReporting(unittest.TestCase):
         self.assertEqual(report["gross_profit"], 40000)
         self.assertEqual(report["ebitda"], 25000)
         self.assertEqual(
-            report["net_profit_before_interest_and_tax"], 22000
+            report["ebit"], 22000
         )
         self.assertEqual(report["gross_margin_percent"], 40.0)
-        self.assertEqual(report["net_margin_percent"], 22.0)
+        self.assertEqual(report["ebit_margin_percent"], 22.0)
 
     def test_zero_revenue(self):
         report = generate_financial_report(0, 0, 0)
         self.assertEqual(report["gross_margin_percent"], 0.0)
-        self.assertEqual(report["net_margin_percent"], 0.0)
+        self.assertEqual(report["ebit"], 0.0)
 
     def test_negative_input(self):
         with self.assertRaises(ValueError):
