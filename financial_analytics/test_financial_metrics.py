@@ -20,3 +20,19 @@ class TestFinancialMetrics(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+def test_net_margin_percent():
+    assert FinancialMetrics.net_margin_percent(1000, 150) == 15.0
+
+
+def test_net_margin_percent_zero_revenue():
+    assert FinancialMetrics.net_margin_percent(0, 150) == 0.0
+
+
+def test_inventory_turnover():
+    assert FinancialMetrics.inventory_turnover(500, 100) == 5.0
+
+
+def test_inventory_turnover_zero_inventory():
+    assert FinancialMetrics.inventory_turnover(500, 0) == 0.0

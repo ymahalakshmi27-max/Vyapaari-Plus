@@ -16,6 +16,26 @@ class FinancialMetrics:
             return 0.0
         return (self.gross_profit / self.revenue) * 100
 
+    @staticmethod
+    def net_margin_percent(
+        revenue: float,
+        net_profit: float,
+    ) -> float:
+        if revenue == 0:
+            return 0.0
+        return (net_profit / revenue) * 100
+
+    @staticmethod
+    def inventory_turnover(
+        cost_of_goods_sold: float,
+        average_inventory_value: float,
+    ) -> float:
+        if average_inventory_value == 0:
+            return 0.0
+        return cost_of_goods_sold / average_inventory_value
+
+
+
 
 if __name__ == "__main__":
     metrics = FinancialMetrics(
